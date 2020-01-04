@@ -13,7 +13,10 @@ const CopyFilePlugin = require('webpack-copy-file-plugin');
 	// ...
 	plugins: [
 		// ... other plugins
-		new CopyFilePlugin(['./README.md', './LICENSE', './package.json', './.gitignore']), // 放在其它插件的后面
+		new CopyFilePlugin([
+			'./LICENSE',
+			'./package.json'
+		].map(f => path.resolve(__dirname, f))), // 放在其它插件的后面
 	],
 	output: {
 		filename: '[name].js',

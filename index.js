@@ -18,7 +18,15 @@ class CopyFilePlugin {
 			(webpackContext, next) => {
 				const outDir = self.outDir || webpackContext.outputOptions.path;
 				if (self.files && Array.isArray(self.files) && outDir) {
-					self.files.forEach(file => fs.copyFileSync(file, path.join(outDir, path.basename(file))));
+					if (!fs.existsSync(outDir)) {
+						fs.mkdirSync(outDir);
+					}
+					Array.from(self.files).forEach(from => {
+						if (fs.existsSync(from)) {
+							const to = path.join(outDir, path.basename(from));
+							fs.copyFileSync(from, to);
+						}
+					});
 				}
 				next();
 			}
