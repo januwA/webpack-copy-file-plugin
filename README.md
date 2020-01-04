@@ -2,12 +2,12 @@
 
 ## install
 ```
-$ npm i copy-file-plugin -D
+$ npm i webpack-copy-file-plugin -D
 ```
 
 ## Example
 ```js
-const CopyFilePlugin = require('copy-file-plugin');
+const CopyFilePlugin = require('webpack-copy-file-plugin');
 
 {
 	// ...
