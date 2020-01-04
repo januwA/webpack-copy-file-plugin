@@ -22,4 +22,4 @@ class CopyFilePlugin {
 	}
 }
 
-export default CopyFilePlugin;
+module.exports = CopyFilePlugin;

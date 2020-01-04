@@ -1,6 +1,6 @@
 {
   "name": "webpack-copy-file-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "webpack插件，将指定文件拷贝到打包目录下",
   "main": "index.js",
   "scripts": {},
