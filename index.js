@@ -1,5 +1,5 @@
 const path = require('path');
-const fs = require('fs')
+const fs = require('fs-extra')
 
 /**
  * i: D:\ajanuw\webpack-scaffold\LICENSE
@@ -18,13 +18,10 @@ class CopyFilePlugin {
 			(webpackContext, next) => {
 				const outDir = self.outDir || webpackContext.outputOptions.path;
 				if (self.files && Array.isArray(self.files) && outDir) {
-					if (!fs.existsSync(outDir)) {
-						fs.mkdirSync(outDir);
-					}
 					Array.from(self.files).forEach(from => {
 						if (fs.existsSync(from)) {
 							const to = path.join(outDir, path.basename(from));
-							fs.copyFileSync(from, to);
+							fs.copySync(from, to);
 						}
 					});
 				}
